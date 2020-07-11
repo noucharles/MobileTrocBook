@@ -8,15 +8,17 @@ import {
   AppFormPicker as Picker,
   SubmitButton,
 } from "../components/forms";
-import CategoryPickerItem from "../components/CategoryPickerItem";
+
+import FormImagePicker from "../components/forms/FormImagePicker";
 
 const validationSchema = Yup.object().shape({
-  title: Yup.string().required("Le titre du livre est obligatoire").min(1).label("Title"),
-  houseEdition: Yup.string().required("La maison d'édition est obligatoire").min(2, "La maison d'édition doit contenir au moins 2 caractères").label("HouseEdition"),
-  description: Yup.string().required("La description est obligatoire").label("Description"),
-  yearParution: Yup.number().required("La date de parution du livre est obligatoire").label("YearParution").min(1970, "La date de parution n'est pas valide").max(2022, "La date de parution n'est pas valide"),
-  exigences: Yup.string().required("Les exigences sont obligatoire").label("Exigences"),
-  category: Yup.object().required().nullable().label("Category"),
+    title: Yup.string().required("Le titre du livre est obligatoire").min(1).label("Title"),
+    houseEdition: Yup.string().required("La maison d'édition est obligatoire").min(2, "La maison d'édition doit contenir au moins 2 caractères").label("HouseEdition"),
+    description: Yup.string().required("La description est obligatoire").label("Description"),
+    yearParution: Yup.number().required("La date de parution du livre est obligatoire").label("YearParution").min(1970, "La date de parution n'est pas valide").max(2022, "La date de parution n'est pas valide"),
+    exigences: Yup.string().required("Les exigences sont obligatoire").label("Exigences"),
+    category: Yup.object().required().nullable().label("Category"),
+    images: Yup.array().min(1, "Sélectionnez au moins une image.").max(3, "Le champ d'image doit avoir moins de ou égal à 3 images"),
 });
 
 const categories = [
@@ -41,11 +43,13 @@ function ListingEditScreen() {
           yearParution: "",
           exigences: "",
           category: null,
+          images: [],
         }}
         onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
         <FormField maxLength={255} name="title" placeholder="Titre du livre" />
+        <FormImagePicker name="images" />
         <Picker items={categories} name="category"
                 // numberOfColumns={3} PickerItemComponent={CategoryPickerItem}
                 placeholder="Classe" width="50%"/>
@@ -82,8 +86,8 @@ function ListingEditScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10,
-    marginTop: 25
+    padding: 4,
+    marginTop: 10
   },
 });
 export default ListingEditScreen;

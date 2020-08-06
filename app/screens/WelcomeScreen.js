@@ -1,11 +1,12 @@
 import React from 'react';
 import {ImageBackground, StyleSheet, View, Image, Text} from "react-native";
 import AppButton from "../components/AppButton";
-import colors from "../config/color";
+import routes from '../navigation/routes';
 
-function WelcomeScreen(props) {
+
+function WelcomeScreen({navigation}) {
     return (
-        <ImageBackground blurRadius={8} style={styles.background} source={require("../assets/background.jpg")}>
+        <ImageBackground blurRadius={1} style={styles.background} source={require("../assets/lycee.jpg")}>
 
             <View style={styles.logoContainer}>
                 <Image style={styles.logo} source={require('../assets/logo_book.png')}/>
@@ -13,8 +14,8 @@ function WelcomeScreen(props) {
             </View>
 
             <View style={styles.buttonsContainer}>
-                <AppButton title="CONNEXION"/>
-                <AppButton title="Insription" color="secondary"/>
+                <AppButton title="CONNEXION" onPress={() => navigation.navigate(routes.LOGIN)}/>
+                <AppButton title="INSCRIPTION" color="secondary" onPress={() => navigation.navigate(routes.REGISTER)}/>
             </View>
 
 

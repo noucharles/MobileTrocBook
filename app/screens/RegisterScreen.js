@@ -1,13 +1,20 @@
-import React from "react";
-import { StyleSheet } from "react-native";
+import React, {useState, useContext} from "react";
+import {AsyncStorage, StyleSheet} from "react-native";
 import * as Yup from "yup";
+import axios from "axios";
 
 import Screen from "../components/Screen";
+import ActivityIndicator from "../components/ActivityIndicator";
 import {
   AppForm as Form,
   AppFormField as FormField,
   SubmitButton,
+    ErrorMessage
 } from "../components/forms";
+import useAuth from "../auth/useAuth";
+import jwtDecode from "jwt-decode";
+import AuthContext from "../auth/context";
+import AuthStorage from "../auth/storage";
 
 
 const validationSchema = Yup.object().shape({
@@ -18,13 +25,53 @@ const validationSchema = Yup.object().shape({
 });
 
 function RegisterScreen() {
+
+    const authContext = useContext(AuthContext);
+    const [error, setError] = useState();
+    const [loading, setLoading] = useState(false);
+
+  const handleSubmit = async (datas = {name, email, phone, password}) => {
+      try {
+          setLoading(true);
+          const result = await axios.post('http://192.168.43.11:8000/api/users',datas);
+          console.log(result);
+
+          if(result){
+              let log = {
+                  username: result.data.email,
+                  password: datas.password
+              };
+              console.log(log)
+              const token = await axios.post("http://192.168.43.11:8000/api/login_check", log).then(
+                  response => response.data.token
+              );
+              console.log(token);
+              AsyncStorage.setItem("authToken", token);
+              axios.defaults.headers["Authorization"] = "Bearer " + token;
+
+              const user = jwtDecode(token);
+              authContext.setUser(user);
+              AuthStorage.storeToken(token);
+              setLoading(false);
+          }
+      }catch (error) {
+          setLoading(false);
+          setError("Une erreur inattendue est apparue.");
+          console.log(result);
+      }
+
+  }
+
   return (
+  <>
+      <ActivityIndicator visible={loading} />
     <Screen style={styles.container}>
       <Form
         initialValues={{ name: "", email: "",phone: "", password: "" }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
+          <ErrorMessage error={error} visible={error} />
         <FormField
           autoCorrect={false}
           icon="account"
@@ -60,6 +107,7 @@ function RegisterScreen() {
         <SubmitButton title="S'inscrire" />
       </Form>
     </Screen>
+  </>
   );
 }
 

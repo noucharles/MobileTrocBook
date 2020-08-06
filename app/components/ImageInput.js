@@ -49,7 +49,7 @@ function ImageInput({ imageUri, onChangeImage }) {
                     const result = await ImagePicker.launchImageLibraryAsync({
                         mediaTypes: ImagePicker.MediaTypeOptions.Images,
                         quality: 0.5,
-                        allowsEditing: true
+                        allowsEditing: false
 
                     });
                     if (!result.cancelled) {
@@ -59,7 +59,7 @@ function ImageInput({ imageUri, onChangeImage }) {
                     const result = await ImagePicker.launchCameraAsync({
                         mediaTypes: ImagePicker.MediaTypeOptions.Images,
                         quality: 0.5,
-                        allowsEditing: true
+                        allowsEditing: false
 
                     });
                     if (!result.cancelled) {

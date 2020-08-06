@@ -1,6 +1,8 @@
-import React from "react";
+import React, {useState, useEffect} from "react";
 import { ScrollView, StyleSheet } from "react-native";
 import * as Yup from "yup";
+import axios from "axios";
+import ActivityIndicator from "../components/ActivityIndicator";
 
 import {
   AppForm as Form,
@@ -10,6 +12,8 @@ import {
 } from "../components/forms";
 
 import FormImagePicker from "../components/forms/FormImagePicker";
+import AnnonceService from "../api/annonce";
+import listing from "../api/listing";
 
 const validationSchema = Yup.object().shape({
     title: Yup.string().required("Le titre du livre est obligatoire").min(1).label("Title"),
@@ -17,6 +21,7 @@ const validationSchema = Yup.object().shape({
     description: Yup.string().required("La description est obligatoire").label("Description"),
     yearParution: Yup.number().required("La date de parution du livre est obligatoire").label("YearParution").min(1970, "La date de parution n'est pas valide").max(2022, "La date de parution n'est pas valide"),
     exigences: Yup.string().required("Les exigences sont obligatoire").label("Exigences"),
+    district: Yup.string().required("Le quartier sont obligatoire").label("Quartier"),
     category: Yup.object().required().nullable().label("Category"),
     images: Yup.array().min(1, "Sélectionnez au moins une image.").max(3, "Le champ d'image doit avoir moins de ou égal à 3 images"),
 });
@@ -33,7 +38,48 @@ const categories = [
 ];
 
 function ListingEditScreen() {
+
+    const [loading, setLoading] = useState(false);
+  const handleSubmit = async (datas = {title, houseEdition, description, yearParution, exigences , category, images }, {resetForm}) => {
+      try {
+          setLoading(true);
+          const result = await axios.post('http://192.168.43.11:8000/api/annonces',{"title": datas.title, "houseEdition": datas.houseEdition, "description": datas.description, "category": datas.category, "yearParution": datas.yearParution, "exigences": datas.exigences, "district": datas.district});
+              if(result) {
+                  console.log(result.data.id);
+                  setLoading(true);
+
+                  datas.images.forEach( (image, index) => {
+                      console.log(image)
+                      let data1 = new FormData();
+                      data1.append("file",  {
+                          name: "image" + index,
+                          type: "image/*",
+                          uri: image,
+                      });
+                      data1.append('annonce', result.data.id);
+                      axios({
+                          method: 'post',
+                          headers: {
+                              'Content-Type': 'multipart/form-data',
+                          },
+                          data: data1,
+                          url: 'http://192.168.43.11:8000/api/images'
+                      })
+                  })
+                  setLoading(false);
+              }
+          setLoading(false);
+      }catch (error) {
+          setLoading(false);
+          console.log(error.response);
+      }
+
+      resetForm();
+  }
+
   return (
+  <>
+      <ActivityIndicator visible={loading} />
     <ScrollView style={styles.container}>
       <Form
         initialValues={{
@@ -44,8 +90,9 @@ function ListingEditScreen() {
           exigences: "",
           category: null,
           images: [],
+          district: ""
         }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
         <FormField maxLength={255} name="title" placeholder="Titre du livre" />
@@ -64,6 +111,12 @@ function ListingEditScreen() {
             name="yearParution"
             placeholder="Année de parution du livre"
         />
+          <FormField
+              maxLength={255}
+              name="district"
+              numberOfLines={1}
+              placeholder="Veuillez préciser ici votre quartier"
+          />
         <FormField
           maxLength={255}
           multiline
@@ -75,12 +128,13 @@ function ListingEditScreen() {
             maxLength={255}
             multiline
             name="exigences"
-            numberOfLines={3}
+            numberOfLines={2}
             placeholder="Veuillez préciser ici les conditions pour lesquels vous etes pret à céder votre livre, ce que vous attendez en retour"
         />
         <SubmitButton title="Publier" />
       </Form>
     </ScrollView>
+  </>
   );
 }
 

@@ -21,9 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="7d7d685d-acf0-49e0-a8f8-4093cd0dc6ef" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/ContactScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/ContactScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/InfosScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/InfosScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/RegisterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/RegisterScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/components/ImageInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ImageInput.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -115,7 +113,7 @@
       <workItem from="1596288152097" duration="13355000" />
       <workItem from="1596444875976" duration="31414000" />
       <workItem from="1596709480163" duration="19798000" />
-      <workItem from="1596798885996" duration="5292000" />
+      <workItem from="1596798885996" duration="6231000" />
     </task>
     <servers />
   </component>

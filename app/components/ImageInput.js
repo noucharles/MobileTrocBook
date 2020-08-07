@@ -48,7 +48,7 @@ function ImageInput({ imageUri, onChangeImage }) {
                 if (bool) {
                     const result = await ImagePicker.launchImageLibraryAsync({
                         mediaTypes: ImagePicker.MediaTypeOptions.Images,
-                        quality: 0.5,
+                        quality: 0.4,
                         allowsEditing: false
 
                     });

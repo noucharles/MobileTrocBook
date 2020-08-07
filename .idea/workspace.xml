@@ -20,44 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d7d685d-acf0-49e0-a8f8-4093cd0dc6ef" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/app/api/annonce.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/authApi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/listing.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/api/user.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/assets/animations/loader.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/auth/context.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/auth/storage.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/auth/useAuth.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/components/ActivityIndicator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/navigation/AccountNavigator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/navigation/AppNavigator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/navigation/AuthNavigator.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/navigation/FeedNavigation.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/navigation/NewListingButton.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/navigation/navigationTheme.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/navigation/routes.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/screens/ContactScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/screens/InfosScreen.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/app/screens/MyListingsScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/trocApk.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/trocApk.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.json" beforeDir="false" afterPath="$PROJECT_DIR$/app.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/Icon.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/Icon.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/ImageInput.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/ImageInput.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/card.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/card.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/forms/AppFormField.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/forms/AppFormField.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/components/lists/ListItem.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/components/lists/ListItem.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/config/color.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/config/color.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/AccountScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/AccountScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/ListingDetailsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/ListingDetailsScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/ListingEditScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/ListingEditScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/ListingsScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/ListingsScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/LoginScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/LoginScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/ContactScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/ContactScreen.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/screens/InfosScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/InfosScreen.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/screens/RegisterScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/RegisterScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/screens/WelcomeScreen.js" beforeDir="false" afterPath="$PROJECT_DIR$/app/screens/WelcomeScreen.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -148,7 +114,8 @@
       <workItem from="1596198145597" duration="13475000" />
       <workItem from="1596288152097" duration="13355000" />
       <workItem from="1596444875976" duration="31414000" />
-      <workItem from="1596709480163" duration="18140000" />
+      <workItem from="1596709480163" duration="19798000" />
+      <workItem from="1596798885996" duration="5292000" />
     </task>
     <servers />
   </component>

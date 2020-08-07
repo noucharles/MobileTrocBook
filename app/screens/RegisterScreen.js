@@ -19,7 +19,7 @@ import AuthStorage from "../auth/storage";
 
 const validationSchema = Yup.object().shape({
     name: Yup.string().required("Le nom ou pseudo est obligatoire").label("Name"),
-    phone: Yup.number().required("Le numéro de téléphone est obligatoire").label("phone").min(650000000,"Le unméro de téléphone n'est pas valide").max(699999999,"Le unméro de téléphone n'est pas valide"),
+    phone: Yup.number().required("Le numéro de téléphone est obligatoire").label("phone").min(650000000,"Le numéro de téléphone n'est pas valide").max(699999999,"Le numéro de téléphone n'est pas valide"),
     email: Yup.string().required("L' email est obligatoire").email("L'email doit être un email valide").label("Email"),
     password: Yup.string().required("Le mot de passe est obligatoire").min(4, "Le mot de passe doit contenir au moins 4 caractères").label("Password"),
 });
